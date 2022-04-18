@@ -17,12 +17,22 @@ public class Owner {
         this.expenses = expenses;
     }
     public void enter(){
-        fio.enter();
+        boolean a = true;
         Scanner sc = new Scanner(System.in);
-        System.out.println("Vvedite income: ");
-        income = sc.nextInt();
-        System.out.println("Vvedite expenses: ");
-        expenses = sc.nextInt();
+        while (a)
+            try {
+                fio.enter();
+                System.out.println("Vvedite income: ");
+                income = sc.nextInt();
+                System.out.println("Vvedite expenses: ");
+                expenses = sc.nextInt();
+                a = false;
+            }
+            catch (Exception e){
+                System.err.println(e);
+                System.out.println("Press Enter key to continue...");
+                sc.nextLine();
+            }
     }
 
     public void print() {

@@ -17,12 +17,24 @@ public class Boxoffice {
         this.count = count;
     }
     public void enter(){
-        fio.enter();
+        boolean a = true;
         Scanner sc = new Scanner(System.in);
-        System.out.println("Vvedite workers: ");
-        workers = sc.nextInt();
-        System.out.println("Vvedite count: ");
-        count = sc.nextInt();
+        while (a)
+            try {
+                fio.enter();
+                System.out.println("Vvedite workers: ");
+                workers = sc.nextInt();
+                if (workers < 0) throw new Exception("Error! Number < 0.");
+                System.out.println("Vvedite count: ");
+                count = sc.nextInt();
+                if (count < 0) throw new Exception("Error! Number < 0.");
+                a = false;
+            }
+            catch (Exception e){
+                System.err.println(e);
+                System.out.println("Press Enter key to continue...");
+                sc.nextLine();
+            }
     }
 
     public void print() {

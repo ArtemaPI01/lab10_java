@@ -24,6 +24,7 @@ public class Warehouse {
                 product = sc.nextLine().split(" ");
                 System.out.println("Vvedite station: ");
                 station = sc.nextInt();
+                if (station < 0) throw new Exception("Error! Number < 0.");
                 a = false;
             }
             catch (Exception e){
