@@ -14,13 +14,25 @@ public class Warehouse {
         this.station = station;
     }
 
+
     public void enter(){
+        boolean a = true;
         Scanner sc = new Scanner(System.in);
-        System.out.println("Vvedite product: ");
-        product = sc.nextLine().split(" ");
-        System.out.println("Vvedite station: ");
-        station = sc.nextInt();
+        while (a)
+            try {
+                System.out.println("Vvedite product: ");
+                product = sc.nextLine().split(" ");
+                System.out.println("Vvedite station: ");
+                station = sc.nextInt();
+                a = false;
+            }
+            catch (Exception e){
+                System.err.println(e);
+                System.out.println("Press Enter key to continue...");
+                sc.nextLine();
+            }
     }
+
     public void print() {
         for (int i = 0; i < product.length; i++) {
             System.out.print(product[i] + " ");
