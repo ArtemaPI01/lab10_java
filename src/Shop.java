@@ -29,16 +29,31 @@ public class Shop {
     public static void CountOfShops(){
         System.out.println("Kol-vo shops: " + counter);
     }
+
     public void enter(){
+        boolean a = true;
         Scanner sc = new Scanner(System.in);
-        System.out.println("Vvedite name: ");
-        name = sc.nextLine();
-        System.out.println("Vvedite type: ");
-        type = sc.nextLine();
-        System.out.println("Vvedite street: ");
-        street = sc.nextLine();
-        System.out.println("Vvedite time: ");
-        time = sc.nextLine();
+        while (a)
+        try {
+            System.out.println("Vvedite name: ");
+            name = sc.nextLine();
+            if (new String(name).equals("")) throw new Exception("Error! IIYCTO.");
+            System.out.println("Vvedite type: ");
+            type = sc.nextLine();
+            if (new String(type).equals("")) throw new Exception("Error! IIYCTO.");
+            System.out.println("Vvedite street: ");
+            street = sc.nextLine();
+            if (new String(street).equals("")) throw new Exception("Error! IIYCTO.");
+            System.out.println("Vvedite time: ");
+            time = sc.nextLine();
+            if (new String(time).equals("")) throw new Exception("Error! IIYCTO.");
+            a = false;
+        }
+        catch (Exception e){
+            System.err.println(e);
+            System.out.println("Press Enter key to continue...");
+            sc.nextLine();
+        }
     }
     public void print() {
         System.out.println("Name: " + name + " type: " + type + " street: " + street+ " time: " + time);
