@@ -24,8 +24,10 @@ public class Owner {
                 fio.enter();
                 System.out.println("Vvedite income: ");
                 income = sc.nextInt();
+                if (income < 0) throw new Exception("Error! Number < 0.");
                 System.out.println("Vvedite expenses: ");
                 expenses = sc.nextInt();
+                if (expenses < 0) throw new Exception("Error! Number < 0.");
                 a = false;
             }
             catch (Exception e){
